@@ -201,9 +201,9 @@ public class PostCommentServiceImpl extends BaseCommentServiceImpl<PostComment>
             commentBlackListService.commentsBanStatus(ServletUtils.getRequestIp());
         Integer banTime = optionService
             .getByPropertyOrDefault(CommentProperties.COMMENT_BAN_TIME, Integer.class, 10);
-        if (banStatus == CommentViolationTypeEnum.FREQUENTLY) {
-            throw new ForbiddenException(String.format("您的评论过于频繁，请%s分钟之后再试。", banTime));
-        }
+        // if (banStatus == CommentViolationTypeEnum.FREQUENTLY) {
+        //     throw new ForbiddenException(String.format("您的评论过于频繁，请%s分钟之后再试。", banTime));
+        // }
     }
 
 }

@@ -58,14 +58,14 @@ public class CacheLockInterceptor {
                 .putIfAbsent(cacheLockKey, CACHE_LOCK_VALUE, cacheLock.expired(),
                     cacheLock.timeUnit());
 
-            if (cacheResult == null) {
-                throw new ServiceException("Unknown reason of cache " + cacheLockKey)
-                    .setErrorData(cacheLockKey);
-            }
-
-            if (!cacheResult) {
-                throw new FrequentAccessException("访问过于频繁，请稍后再试！").setErrorData(cacheLockKey);
-            }
+            // if (cacheResult == null) {
+            //     throw new ServiceException("Unknown reason of cache " + cacheLockKey)
+            //         .setErrorData(cacheLockKey);
+            // }
+            //
+            // if (!cacheResult) {
+            //     throw new FrequentAccessException("访问过于频繁，请稍后再试！").setErrorData(cacheLockKey);
+            // }
 
             // Proceed the method
             return joinPoint.proceed();

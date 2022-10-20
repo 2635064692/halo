@@ -34,7 +34,7 @@ public abstract class BaseCommentParam<COMMENT> implements InputConverter<COMMEN
     private String authorUrl;
 
     @NotBlank(message = "评论内容不能为空")
-    @Size(max = 1023, message = "评论内容的字符长度不能超过 {max}")
+    // @Size(max = 1023, message = "评论内容的字符长度不能超过 {max}")
     private String content;
 
     @Min(value = 1, message = "Post id must not be less than {value}")

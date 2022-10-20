@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import run.halo.app.model.entity.CommentBlackList;
 import run.halo.app.repository.base.BaseRepository;
+import javax.transaction.Transactional;
 
 /**
  * 评论黑名单Repository
@@ -29,6 +30,7 @@ public interface CommentBlackListRepository extends BaseRepository<CommentBlackL
      * @param commentBlackList comment black list
      * @return result
      */
+    @Transactional
     @Modifying
     @Query("UPDATE CommentBlackList SET banTime=:#{#commentBlackList.banTime} WHERE "
         + "ipAddress=:#{#commentBlackList.ipAddress}")

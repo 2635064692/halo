@@ -550,6 +550,7 @@ public class PostServiceImpl extends BasePostServiceImpl<Post> implements PostSe
     }
 
     @Override
+    @Transactional
     public Post removeById(Integer postId) {
         Assert.notNull(postId, "Post id must not be null");
 
